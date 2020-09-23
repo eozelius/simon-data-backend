@@ -1,24 +1,41 @@
-# README
+# Ethan Ozelius SimonDatat Coding Challenge
+Rails JSON API for Email Campaigns using SendGrid.  This App is a DB backed API for User and EmailCampaign resources.  EmailCampaigns and Users have a **Many to Many** DB relationship.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Quick start
+```bash
+create db
+rails db:create
 
-Things you may want to cover:
+migrate db
+rails db:migrate
 
-* Ruby version
+seed db
+rails db:seed
 
-* System dependencies
+start server
+rails s
 
-* Configuration
 
-* Database creation
+PRODUCTION
+- Ensure that Sendgrid and Postgres setup have been completed.
+bundle exec RAILS_ENV=production rails s
+```
 
-* Database initialization
+## JSON API
+In an effort to make this application as lean as possible all Frontend utilities have been stripped out (webpack, sprockets, views etc.)
 
-* How to run the test suite
+## Sendgrid Setup
+This app uses API_KEY authentication, as opposed to username/password.  The environment variable `SENDGRID_API_KEY` is required to send emails in production.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Emails per Environment
+Rails uses 3 environments: Test, Develope and Production.  Email sending in each environment varys, in Development and Test the `letter_opener` gem will be used to inspect emails without actually sending them.  In production real emails will be sent using sendgrid.
 
-* Deployment instructions
+## Postgres
+This Application requires PG v12 to be installed and running.  To create the production database, you will need to create a `simon_data` pg user who has the `CREATEDB` priviledge.
 
-* ...
+## TODO
+- Email Campaign
+  - `max_send_per_user` - limit the number of emails that will be sent to a single user.  default: 10.
+  - `interval` - send the email campaign on a daily/weekly etc interval
+  - Security Authtication - gate email sending with authentication system.
+  - Verify another Sendgrid User other than my personal email address.

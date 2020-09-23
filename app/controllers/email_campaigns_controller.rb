@@ -5,6 +5,8 @@ class EmailCampaignsController < ApplicationController
 
     if email_campaign.valid?
       email_campaign.send_email_campaign
+
+      render json: { message: 'emails sent successfully' }, status: 200
     else
       render json: {
         message: 'Could not send email campaign.',
