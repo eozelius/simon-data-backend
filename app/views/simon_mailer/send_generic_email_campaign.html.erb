@@ -1,0 +1,132 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <title>SimonData</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Raleway&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+    body {
+      width: 100%;
+      background-color: #ffffff;
+      margin:0;
+      padding:0;
+      -webkit-font-smoothing: antialiased;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+    }
+
+    .email-container {
+      border: 1px solid #ccc;
+      width: 90%;
+      margin: 5% auto;
+      font-family: 'Raleway', sans-serif;
+      text-align: center;
+      font-size: 28px;
+      color: rgb(57, 61, 63);
+    }
+
+    .name-container {
+      font-family: 'Oswald', 'Arial';
+      font-size: 45px;
+      text-align: center;
+      color: #4d2278;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 165px;
+    }
+
+    .description-container {
+      margin: 0 auto 5%;
+    }
+
+    .description {
+    }
+
+    .emphasized {
+       margin: 0 5px;
+      font-weight: bold;
+      font-size: 27px ;
+      text-align: center;
+      font-family: 'Oswald', 'Arial', sans-serif;
+      color: #7E7F9A;
+    }
+
+    .discount {
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+
+<% default_url_options[:host] = 'driftmaps.com' %>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family:Arial, Helvetica, sans-serif">
+
+  <div class="email-container">
+    <table width="90%" cellpadding="0" cellspacing="0" align="center">
+      <!-- Name-->
+      <tr style="padding-top:20px">
+        <td width="100%" valign="top" bgcolor="#ffffff">
+          <table class="name-container" width="90%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+            <tr>
+              <td width="100%" class="name">
+                <%= @campaign.name %>
+              </td>
+            </tr>
+          </table>
+
+          <div style="height:15px;margin:0 auto;">&nbsp;</div><!-- spacer -->
+        </td>
+      </tr>
+
+      <!-- Description -->
+      <tr style="padding-top:20px">
+        <td width="100%" valign="top" bgcolor="#ffffff">
+          <table class="description-container" width="90%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+            <tr>
+              <td width="100%" class="description">
+                <%= @campaign.description %>
+              </td>
+            </tr>
+          </table>
+
+          <div style="height:15px;margin:0 auto;">&nbsp;</div><!-- spacer -->
+        </td>
+      </tr>
+
+      <!-- Discount Rate and Code -->
+      <tr style="padding-top:20px">
+        <td width="100%" valign="top" bgcolor="#ffffff">
+          <table class="discount-container" width="90%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+            <tr>
+              <td width="100%" class="discount">
+                Use code <span class="emphasized"><%= @campaign.discount_code %></span>
+                to receive <span class="emphasized"><%= @campaign.discount_rate %>%</span> Off!
+              </td>
+            </tr>
+          </table>
+
+          <div style="height:15px;margin:0 auto;">&nbsp;</div><!-- spacer -->
+        </td>
+      </tr>
+      
+      <tr>
+        <td width="100%" valign="top" bgcolor="#ffffff" style="padding-top:20px">
+
+          <%#= @campaign.name %>
+          <%#= @campaign.description %>
+          <%#= @campaign.discount_code %>
+          <%#= @campaign.discount_rate %>
+        </td>
+      </tr>
+    </table>
+    <div style="display:none; white-space:nowrap; font:15px courier; color:#ffffff;">
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    </div>
+  </div>
+</body>
+</html>

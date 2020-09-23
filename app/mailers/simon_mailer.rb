@@ -1,6 +1,17 @@
 class SimonMailer < ApplicationMailer
-  def send_shoe20_email(user)
-    @user = user
-    mail(to: @user.email, subject: '20% off simon shoes!' )
+  def send_generic_email_campaign(campaign)
+    @campaign = campaign
+
+    @campaign.users.each do | u, index |
+
+      begin
+        mail(
+          to: u.email,
+          subject: @campaign.subject
+        )
+      rescue => exception
+        p "EXCEPTION!!!! => #{exception}"
+      end
+    end
   end
 end

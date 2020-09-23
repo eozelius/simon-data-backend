@@ -9,35 +9,34 @@
 # email_campaign.save!
 
 sammy = User.create(
-  first_name: 'sammy',
-  last_name: 'samwell',
+  name: 'sammy samwell',
   email: 'sammy.samwell2020@mailinator.com'
 )
 
 alex = User.create(
-  first_name: 'alex',
-  last_name: 'andersson',
+  name: 'alex andersson',
   email: 'alex.andersson2020@mailinator.com'
 )
 
 taylor = User.create(
-  first_name: 'taylor',
-  last_name: 'tolstoy',
+  name: 'taylor tolstoy',
   email: 'alex.tolstoy2020@mailinator.com'
 )
 
 hats_50 = EmailCampaign.create(
-  campaign_name: 'hats_50',
-  email_sender: 'do-not-reply@hats50.simon-data.com',
+  name: 'Simon Data - End of Winter Hat Sale',
+  subject: 'Simon Data Hats Sale: Keep your head warm with a new Hat!',
+  sender: 'do-not-reply@hats50.simon-data.com',
+  description: 'SimonData Winter Sale promotion.  Right now take 50% off all your favorite Hats!',
   discount_code: 'SIMON_HATS_50',
-  discount_rate: 50,
-  max_send_per_user: 3
+  discount_rate: 50
 )
 
 shoes_20 = EmailCampaign.create(
-  campaign_name: 'shoes_20',
-  email_sender: 'do-not-reply@shoes20.simon-data.com',
+  name: 'SimonData - End of Summer Shoe Sale',
+  subject: 'Simon Data Sale: Lace up some new Shoes!',
+  sender: 'do-not-reply@simondata.com',
+  description: 'Take a walk in the Park with SimonData Shoes Summer discount promotion: 20% off all online purchases.  ',
   discount_code: 'SIMON_SHOES_20',
-  discount_rate: 20,
-  max_send_per_user: 5
+  discount_rate: 20
 )

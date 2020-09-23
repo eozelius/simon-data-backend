@@ -10,31 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_224555) do
+ActiveRecord::Schema.define(version: 2020_09_22_232627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "email_campaigns", force: :cascade do |t|
-    t.string "campaign_name"
-    t.string "email_sender", default: "do-not-reply@simondata.com"
+    t.string "name"
+    t.text "description"
+    t.string "sender", default: "do-not-reply@simondata.com"
+    t.string "subject"
     t.string "discount_code"
     t.integer "discount_rate"
-    t.integer "max_send_per_user", default: 3
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "email_campaigns_users", id: false, force: :cascade do |t|
+    t.bigint "email_campaign_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "email"
-    t.bigint "email_campaign_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email"
-    t.index ["email_campaign_id"], name: "index_users_on_email_campaign_id"
   end
 
-  add_foreign_key "users", "email_campaigns"
 end

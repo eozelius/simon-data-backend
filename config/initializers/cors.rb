@@ -12,9 +12,5 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     resource '/send-email',
       headers: :any,
       methods: [:post, :options]
-
-    resource '/email_campaigns',
-      headers: :any,
-      method: [:post, :options]
   end
 end

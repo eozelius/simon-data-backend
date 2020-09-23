@@ -7,9 +7,10 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://simondata.com' }
 
   ActionMailer::Base.smtp_settings = {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
-    domain: 'simondata.com',
+    # user_name: ENV['SENDGRID_API_KEY'],
+    user_name: 'apikey',
+    password: ENV['SENDGRID_API_KEY'],
+    domain: 'localhost',
     address: 'smtp.sendgrid.net',
     port: '587',
     authentication: :plain,
@@ -26,7 +27,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
