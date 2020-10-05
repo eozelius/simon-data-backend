@@ -36,9 +36,6 @@ class EmailCampaign < ApplicationRecord
     },
     format: {
       with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    },
-    uniqueness: {
-      case_sensitive: false
     }
 
   # discount_code
